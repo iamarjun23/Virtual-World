@@ -1,0 +1,262 @@
+body{
+    background-color: #D2AB67 !important;
+}
+body.bg-black {
+    background-color: #141619;
+    color: white; /* Keeps text visible */
+}
+.gradient-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #665DCD 0%, #5FA4E6 45%, #D2AB67 100%); /* Gradient colors */
+  }
+  
+  /* Transparent Button Style */
+  .transparent-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    color:  #ffffff !important; /* Button text color */
+    background: transparent; /* Transparent background */
+  }
+/* Navbar styles */
+.custom-navbar {
+    background-color: #141619 !important; /* Apply the custom color */
+}
+.navbar-nav .nav-link:hover {
+    color: #ff7eb3 !important; /* Hover color for nav items */
+  }
+  .transparent-btn:hover {
+    background: transparent !important; /* No background change on hover */
+    color: #ff7eb3 !important; /* Ensure the button text remains white */
+  }
+  .navbar-nav .nav-link {
+    color: white !important; /* Text color for nav items */
+    font-size: 1rem;
+    font-weight: bold;
+  }body.bg-black {
+    background-color: #141619;
+    color: white; /* Keeps text visible */
+}
+.gradient-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #665DCD 0%, #5FA4E6 45%, #D2AB67 100%); /* Gradient colors */
+  }
+  
+  /* Transparent Button Style */
+  .transparent-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    color:  #ffffff !important; /* Button text color */
+    background: transparent; /* Transparent background */
+  }
+/* Navbar styles */
+.custom-navbar {
+    background-color: #141619 !important; /* Apply the custom color */
+}
+.navbar-nav .nav-link:hover {
+    color: #ff7eb3 !important; /* Hover color for nav items */
+  }
+  .transparent-btn:hover {
+    background: transparent !important; /* No background change on hover */
+    color: #ff7eb3 !important; /* Ensure the button text remains white */
+  }
+  .navbar-nav .nav-link {
+    color: white !important; /* Text color for nav items */
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .maintenance-container {
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 50px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 100px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.blog-container {
+    background: linear-gradient(45deg, #4caf50, #2196f3);
+    color: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 200px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 200%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%);
+    z-index: 0;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 20px;
+    z-index: 1;
+    position: relative;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    z-index: 1;
+    position: relative;
+}
+
+.cta-button {
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 1;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #fbc02d;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .blog-container {
+        padding: 30px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+    }
+}
+
+
+footer {
+    background-color: #141619;
+    color: #fff;
+    padding: 0; 
+}
+
+/* Footer Top Section */
+.footer-container-1 {
+    background-color: #141619;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0; /* No margin around the container */
+    padding: 0; /* No padding around the container */
+    width: 100%; /* Ensure the container stretches across the full width */
+}
+
+.footer-left {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ccc;
+    text-align: left;
+    margin: 0; /* Remove margin from the left section */
+    padding: 20px; /* Remove padding from the left section */
+}
+
+.footer-left p {
+    margin: 0; /* Remove margin between paragraphs */
+}
+
+.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0; /* Remove margin from the right section */
+    padding: px; /* Remove padding from the right section */
+}
+
+.footer-logo {
+    width: 180px;
+    height: auto;
+    margin: 0;
+    padding: 20px; /* Remove margin from the logo */
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    background-color: #141619;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #ccc;
+    padding: 20px; /* Remove padding from the bottom section */
+    margin: 0; /* Remove margin from the bottom section */
+    width: 100%; /* Ensure it stretches across the full width */
+}
+
+.footer-bottom-left {
+    text-align: left;
+    margin: 0; /* Remove margin */
+}
+
+.footer-bottom-right {
+    text-align: right;
+    margin: 0; /* Remove margin */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .footer-container-1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .footer-right {
+        justify-content: center;
+    }
+
+    .footer-logo {
+        margin-top: 10px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-bottom-left {
+        margin-bottom: 10px;
+    }
+}

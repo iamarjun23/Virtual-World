@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science Lab</title>
+  <link rel="icon" type="image/x-icon" href="./class.png">
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    #info { position: absolute; top: 10px; left: 10px; color: white; font-family: Arial; }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js",
+        "GLTFLoader": "https://cdn.jsdelivr.net/npm/three@0.152.0/examples/jsm/loaders/GLTFLoader.js",
+        "PointerLockControls": "https://cdn.jsdelivr.net/npm/three@0.152.0/examples/jsm/controls/PointerLockControls.js",
+        "EffectComposer": "https://cdn.jsdelivr.net/npm/three@0.152.0/examples/jsm/postprocessing/EffectComposer.js",
+        "RenderPass": "https://cdn.jsdelivr.net/npm/three@0.152.0/examples/jsm/postprocessing/RenderPass.js",
+        "UnrealBloomPass": "https://cdn.jsdelivr.net/npm/three@0.152.0/examples/jsm/postprocessing/UnrealBloomPass.js"
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+</head>
+<body>
+
+<div id="info"></div>
+
+<script type="module">
+  import * as THREE from 'three';
+  import { GLTFLoader } from 'GLTFLoader';
+  import { PointerLockControls } from 'PointerLockControls';
+  import { EffectComposer } from 'EffectComposer';
+  import { RenderPass } from 'RenderPass';
+  import { UnrealBloomPass } from 'UnrealBloomPass';
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.set(-1.2, 1, -4.8)
+  camera.lookAt(new THREE.Vector3(-1.2, 1, -4.6));
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  // Set a solid color background (light blue)
+  scene.background = new THREE.Color(0x87CEEB); // Light blue background
+
+  // Lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+  scene.add(ambientLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+  directionalLight.position.set(5, 10, 7.5);
+  directionalLight.castShadow = true;
+  scene.add(directionalLight);
+
+  const hemisphereLight = new THREE.HemisphereLight(0x87CEEB, 0xA9A9A9, 0.5); // Sky color (light blue), ground color (gray)
+  scene.add(hemisphereLight);
+
+  const controls = new PointerLockControls(camera, document.body);
+  document.addEventListener('click', () => {
+    controls.lock();
+  });
+
+  const moveSpeed = 0.1;
+  const verticalSpeed = 0.1;
+  let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
+  let moveUp = false, moveDown = false;
+
+  const onKeyDown = (event) => {
+    switch (event.code) {
+      case 'ArrowUp':
+      case 'KeyW':
+        moveForward = true; break;
+      case 'ArrowLeft':
+      case 'KeyA':
+        moveLeft = true; break;
+      case 'ArrowDown':
+      case 'KeyS':
+        moveBackward = true; break;
+      case 'ArrowRight':
+      case 'KeyD':
+        moveRight = true; break;
+      case 'KeyQ':
+        moveUp = true; break;
+      case 'KeyE':
+        moveDown = true; break;
+    }
+  };
+
+  const onKeyUp = (event) => {
+    switch (event.code) {
+      case 'ArrowUp':
+      case 'KeyW':
+        moveForward = false; break;
+      case 'ArrowLeft':
+      case 'KeyA':
+        moveLeft = false; break;
+      case 'ArrowDown':
+      case 'KeyS':
+        moveBackward = false; break;
+      case 'ArrowRight':
+      case 'KeyD':
+        moveRight = false; break;
+      case 'KeyQ':
+        moveUp = false; break;
+      case 'KeyE':
+        moveDown = false; break;
+    }
+  };
+
+  document.addEventListener('keydown', onKeyDown);
+  document.addEventListener('keyup', onKeyUp);
+
+  const raycaster = new THREE.Raycaster();
+  const mouse = new THREE.Vector2();
+
+  document.addEventListener('click', onDocumentMouseClick);
+
+  const loader = new GLTFLoader();
+  let spheres = [];
+  let labels = []; // To hold label references
+
+  loader.load(
+    'chemestry_lab_classroom.glb',
+    function (gltf) {
+      const model = gltf.scene;
+      model.position.set(0, 0, 0);
+      scene.add(model);
+
+      const objectNames = [
+        { name: 'Compound C6 h12 ', description: 'A hydrocarbon compound commonly found in organic chemistry, often used as a fuel or solvent.', audio: 'music/chemicalcompund-1.mp3', position: new THREE.Vector3(-0.60, 1.5, 4.50), labelPosition: new THREE.Vector3(-0.60, 1.8, 2.50) },
+        { name: 'Test Tube Table', description: 'Test tubes in a tray and a boiling flask for experiment', audio: 'music/testtubes.mp3', position: new THREE.Vector3(-3.00, 1.3, 0.70), labelPosition: new THREE.Vector3(-3.00, 1.7, 2.50) },
+        { name: 'Microscope Table', description: 'A workspace and storage solution designed for handling and organizing test tubes safely in a laboratory environment', audio: 'music/microscopewithatesttubebox.mp3', position: new THREE.Vector3(0.30, 1.3, 0.40), labelPosition: new THREE.Vector3(0.30, 1.5, 2.2) },
+        { name: 'Microscope Table-2', description: 'Essential laboratory furniture and storage for efficient test tube management and experimentation', audio: 'music/microscopewithtesttube-2.mp3', position: new THREE.Vector3(0.20, 1.6, -1.80), labelPosition: new THREE.Vector3(0.20, 1.8, -0.3) },
+        { name: 'Flasks', description: 'Versatile glassware for precise heating and accurate titration, essential for chemical reactions and analysis', audio: 'music/flasks.mp3', position: new THREE.Vector3(-3.0, 1.5, -1.3), labelPosition: new THREE.Vector3(-2.8, 1.5, 0.1) },
+        { name: 'Solar System', description: 'The solar system consists of the Sun, planets, moons, asteroids, and comets', audio: 'music/soloarsystem.mp3', position: new THREE.Vector3(0.6, 1.4, -3.60), labelPosition: new THREE.Vector3(1.3, 1.6, -2.1) },
+        { name: 'ChecmicalC6 H8', description: 'A colorless liquid hydrocarbon with a distinct odor, commonly used in the production of polymers and as a solvent in chemical reactions', audio: 'music/chemical compound c6h6.mp3', position: new THREE.Vector3(-2.70, 1.3, -3.6), labelPosition: new THREE.Vector3(-2.70, 1.8, -1.9) },
+      ];
+
+      objectNames.forEach((item) => {
+        const sphere = createRadius(item.position);
+        const label = createLabel(item.name, item.description, item.labelPosition);
+        sphere.userData = { position: item.position, name: item.name, description: item.description, audio: item.audio };
+        spheres.push(sphere); // Store the sphere
+        labels.push(label); // Store the label
+      });
+
+      animate();
+    },
+    undefined,
+    function (error) {
+      console.error('An error occurred loading the GLB model:', error);
+    }
+  );
+  function createLabel(name, description, position) {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    
+
+    // Calculate the required width and height dynamically
+    const maxWidth = Math.max(context.measureText(name).width + 20, 500); // Minimum width
+    context.font = 'bold 48px Arial'; // Font size for name
+    const nameHeight = 48; // Height of the name text
+    const lineHeight = 30; // Line height for description text
+    const spaceBetween = 20; // Space between name and description
+
+    // Calculate height based on the number of lines in the description
+    context.font = '24px Arial'; // Set font size for description
+    const words = description.split(' ');
+    let line = '';
+    let descriptionHeight = 0;
+
+    // Measure the height needed for the description
+    for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + ' ';
+        const metrics = context.measureText(testLine);
+        const testWidth = metrics.width;
+        if (testWidth > maxWidth - 20 && n > 0) {
+            descriptionHeight += lineHeight; // Add line height for wrapped line
+            line = words[n] + ' ';
+        } else {
+            line = testLine;
+        }
+    }
+    descriptionHeight += lineHeight; // Add height for the last line
+
+    const canvasHeight = nameHeight + descriptionHeight + spaceBetween + 20; // Total height
+
+    // Set canvas dimensions and higher resolution
+    canvas.width = maxWidth * window.devicePixelRatio; // Increase width for higher DPI
+    canvas.height = canvasHeight * window.devicePixelRatio; // Increase height for higher DPI
+    context.scale(window.devicePixelRatio, window.devicePixelRatio); // Scale the context
+
+    // Draw background
+    context.fillStyle = 'rgba(0, 0, 0, 0.8)'; // Background color with transparency
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw name
+    context.fillStyle = '#ffffff'; // Text color
+    context.font = 'bold 48px Arial'; // Font size for name
+    context.fillText(name, 10 / window.devicePixelRatio, 48 / window.devicePixelRatio); // Position for name
+
+    // Draw description with text wrapping
+    context.font = '24px Arial'; // Font size for description
+    context.fillStyle = '#ffffff'; // Text color
+    line = '';
+    let y = 80 + spaceBetween; // Starting y position for description (below the name + spacing)
+
+    for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + ' ';
+        const metrics = context.measureText(testLine);
+        const testWidth = metrics.width;
+        if (testWidth > maxWidth - 20 && n > 0) {
+            context.fillText(line, 10 / window.devicePixelRatio, y / window.devicePixelRatio);
+            line = words[n] + ' ';
+            y += lineHeight; // Move to next line
+        } else {
+            line = testLine;
+        }
+    }
+    context.fillText(line, 10 / window.devicePixelRatio, y / window.devicePixelRatio); // Draw the last line
+
+    // Create texture with higher resolution
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true; // Ensure the texture is updated
+    const labelMaterial = new THREE.SpriteMaterial({ map: texture });
+    const labelSprite = new THREE.Sprite(labelMaterial);
+
+    labelSprite.position.copy(position);
+    labelSprite.scale.set(1.5, 1.5, 1.5); // Scale for visibility
+    scene.add(labelSprite);
+    labelSprite.visible = false; // Initially hidden
+    return labelSprite;
+}
+
+
+  function createRadius(position) {
+    const sphereGeometry = new THREE.SphereGeometry(0.2, 32, 32);
+    const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, transparent: true, opacity: 0 }); // Invisible sphere
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphere.position.copy(position);
+    scene.add(sphere);
+    return sphere;
+  }
+
+  function playAudio(audioFile) {
+    const audio = new Audio(audioFile);
+    audio.play();
+  }
+
+  function onDocumentMouseClick(event) {
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(spheres);
+
+    if (intersects.length > 0) {
+      const clickedSphere = intersects[0].object;
+      const position = clickedSphere.userData.position;
+      const audioFile = clickedSphere.userData.audio;
+
+      const labelIndex = spheres.indexOf(clickedSphere);
+      if (labelIndex !== -1) {
+        const labelPosition = labels[labelIndex].position;
+
+        const targetCameraPosition = position.clone().sub(new THREE.Vector3(0, 0, 0.1));
+
+        // Use GSAP to animate the camera transition smoothly
+        gsap.to(camera.position, {
+          x: targetCameraPosition.x,
+          y: targetCameraPosition.y,
+          z: targetCameraPosition.z,
+          duration: 1,
+          onUpdate: () => camera.lookAt(labelPosition)
+        });
+      }
+
+      playAudio(audioFile);
+      labels.forEach(label => {
+        label.visible = false;
+      });
+
+      if (labelIndex !== -1) {
+        labels[labelIndex].visible = true; // Show the corresponding label
+      }
+    }
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    if (moveForward) camera.position.z -= moveSpeed;
+    if (moveBackward) camera.position.z += moveSpeed;
+    if (moveLeft) camera.position.x -= moveSpeed;
+    if (moveRight) camera.position.x += moveSpeed;
+    if (moveUp) camera.position.y += verticalSpeed;
+    if (moveDown) camera.position.y -= verticalSpeed;
+
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+</script>
+</body>
+</html>

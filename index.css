@@ -1,0 +1,585 @@
+/* Set body background to #1E1E1E */
+body.bg-black {
+    background-color: #141619;
+    color: white; /* Keeps text visible */
+}
+.gradient-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #665DCD 0%, #5FA4E6 45%, #D2AB67 100%); /* Gradient colors */
+  }
+  
+  /* Transparent Button Style */
+  .transparent-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    color:  #ffffff !important; /* Button text color */
+    background: transparent; /* Transparent background */
+  }
+/* Navbar styles */
+.custom-navbar {
+    background-color: #141619 !important; /* Apply the custom color */
+}
+.navbar-nav .nav-link:hover {
+    color: #ff7eb3 !important; /* Hover color for nav items */
+  }
+  .transparent-btn:hover {
+    background: transparent !important; /* No background change on hover */
+    color: #ff7eb3 !important; /* Ensure the button text remains white */
+  }
+  .navbar-nav .nav-link {
+    color: white !important; /* Text color for nav items */
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+/* Button styles */
+#div
+.text-white h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.text-white p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+#picture
+.first-div {
+    height: 50vh; /* Set the div height to 50% of the viewport */
+    position: relative;
+}
+
+.first-image {
+    height: 50%; /* Make the image fill the entire div height */
+    width: 50%; /* Ensure the image scales properly */
+    object-fit: cover; /* Adjust the image to cover the area without distortion */
+}
+#button
+.first-div {
+    height: 50vh; /* Full viewport height */
+    position: relative;
+}
+
+.display-header {
+    font-size: 74px; /* Font size for the headers */
+    font-weight: bold;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+.display-header-1 {
+    font-size: 74px; /* Font size for the headers */
+    font-weight: bold;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+.text-description {
+    font-size: 38px; /* Font size for the description */
+    max-width: 500px; /* Limit the width for better readability */
+    margin: 20px auto;
+    padding-bottom: 50px;
+}
+
+.gradient-button {
+    display: inline-block;
+    background: linear-gradient(160deg, #665DCD 0%, #5FA4E6 45%, #D2AB67 100%);
+    color: #fff; /* White text for contrast */
+    font-size: 24px; /* Large font for emphasis */
+    font-weight: normal;
+    padding: 16px 32px; /* Spacious padding for a prominent button */
+    border: none;
+    border-radius: 8px; /* Smoothly rounded corners */
+    text-align: center;
+    text-transform: uppercase; /* Capitalize all text */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+}
+
+.gradient-button:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+#seconddiv
+.features-section {
+    color: #fff;
+}
+
+.section-heading {
+    font-size: 56px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.section-description {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #ccc;
+    margin-bottom: 200px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.circle-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columns for a row */
+    grid-template-rows: repeat(2, auto); /* 2 rows for the images */
+    gap: 24px; /* Adjust gap between items */
+    justify-items: center; /* Center items horizontally */
+    margin-top: 40px;
+}
+
+.circle {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 49%;
+    padding: 5px;
+    background: linear-gradient(160deg, #665DCD 0%, #5FA4E6 45%, #D2AB67 100%);
+}
+
+.circle-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid #000; /* Optional inner border */
+    object-fit: cover;
+}
+
+.feature-text {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 32px;
+    color: #ccc;
+}
+
+.feature-text p {
+    margin-left: 100px;
+}
+
+/* Adjust text positioning */
+.feature-item:nth-child(1) .feature-text {
+    margin-top: 20px; /* Add space for Feature 1 text */
+    text-align: left; /* Align text to the left */
+    margin-left: 20px;
+}
+
+.feature-item:nth-child(2) .feature-text {
+    margin-top: 20px;
+    margin-left: 10px;
+    text-align: left; /* Align text to the right */
+}
+
+.feature-item:nth-child(3) .feature-text {
+    margin-top: 20px;
+    margin-left: 30px;
+    color: #fff; /* Change color for visibility */
+    text-align: left; /* Center align text */
+}
+
+.feature-item:nth-child(4) .feature-text {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-weight: normal; /* Add bold style for emphasis */
+    text-align: left;
+}
+
+.feature-item:nth-child(5) .feature-text {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-style: normal; /* Add italic style for a unique look */
+    text-align: left;
+}
+
+/* Manually adjust grid positions */
+.feature-item:nth-child(1) {
+    grid-column: 1 / 1; /* Feature 1 in the first column of the first row */
+}
+
+.feature-item:nth-child(2) {
+    grid-column: 2 / 2; /* Feature 2 in the second column of the first row */
+}
+
+.feature-item:nth-child(3) {
+    grid-column: 3 / 3; /* Feature 3 in the third column of the first row */
+}
+
+.feature-item:nth-child(4) {
+    grid-column: 1 / 3; /* Feature 4 in the middle column of the second row */
+    grid-row: 2; /* Placing it on the second row */
+}
+
+.feature-item:nth-child(5) {
+    grid-column: 2 / 4; /* Feature 5 in the third column of the second row */
+    grid-row: 2; /* Placing it on the second row */
+}
+
+/* Optional: Resize images on smaller screens */
+@media (max-width: 768px) {
+    .circle-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .circle-container {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+}
+
+#elementsdiv
+/* Custom section styles */
+.custom-section {
+    color: #fff;
+    text-align: left;
+}
+
+.section-heading {
+    font-size: 56px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.section-description {
+    font-size: 28px;
+    margin-bottom: 100px;
+    color: #ccc;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+}
+
+.section-heading-3 {
+    font-size: 36px;
+    font-weight: normal;
+    margin-bottom: 50px;
+    margin-left: 210px;
+    text-align: left;
+}
+
+.feature-text {
+    font-size: 20px;
+    color: #ccc;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.feature-image {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 400px) {
+    .feature-text {
+        font-size: 20px;
+    }
+}
+
+/* Ensure the button container does not center the content */
+.row .col-md-6.text-right {
+    text-align: left !important; /* Align text and button to the left */
+}
+
+/* Button specific styles */
+/* Ensure the button container allows free positioning */
+.learn-more-btn-container {
+    text-align: left !important; /* Align the button to the left */
+    margin-left: 0 !important; /* Remove any default margin */
+    margin-top: 10px; /* Adjust the top margin as needed */
+}
+
+/* Free up space around the button and align it */
+.learn-more-btn {
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    background: transparent !important; /* Make the button background transparent */
+    border: none !important; /* Remove the default button border */
+    color: white; /* Make the button text transparent */
+    display: inline-flex; /* Keep inline-flex for button contents */
+    align-items: center; /* Center align vertically */
+    text-decoration: none;
+    margin-top: 10px; /* Space the button out */
+    border-radius: 5px;
+    position: relative; /* Position relative to contain the underline */
+    overflow: hidden;
+    box-shadow: none !important; /* Remove any default shadow */
+    text-align: left; /* Align text inside button to left */
+    margin-left: 500 px;
+}
+
+/* This container should be applied if it's wrapping the button */
+.row .col-md-6 .learn-more-btn-container {
+    margin-left: 210px !important; /* Ensure no left margin on the container */
+    text-align: left; /* Align button to the left */
+    width: auto; /* Allow width to be adjusted */
+}
+
+
+
+/* Gradient underline for the button */
+.learn-more-btn::before {
+    content: ''; /* Empty content for the underline */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(160deg, #665DCD 0%, #5FA4E6 45%, #D2AB67 100%); /* Gradient underline */
+}
+
+/* Arrow styling for the button */
+.learn-more-btn span {
+    margin-left: 10px;
+    font-size: 30px; /* Size of the arrow */
+    background: linear-gradient(160deg, #665DCD 0%, #5FA4E6 45%, #D2AB67 100%); /* Gradient for the arrow */
+    -webkit-background-clip: text; /* Vendor prefix for WebKit-based browsers */
+    background-clip: text; /* Standard property */
+    color: transparent; /* Make the arrow text transparent so the gradient is visible */
+}
+#footer
+footer {
+    background-color: #141619;
+    color: #fff;
+    padding: 0; 
+}
+
+/* Footer Top Section */
+.footer-container-1 {
+    background-color: #141619;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0; /* No margin around the container */
+    padding: 0; /* No padding around the container */
+    width: 100%; /* Ensure the container stretches across the full width */
+}
+
+.footer-left {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ccc;
+    text-align: left;
+    margin: 0; /* Remove margin from the left section */
+    padding: 20px; /* Remove padding from the left section */
+}
+
+.footer-left p {
+    margin: 0; /* Remove margin between paragraphs */
+}
+
+.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0; /* Remove margin from the right section */
+    padding: px; /* Remove padding from the right section */
+}
+
+.footer-logo {
+    width: 180px;
+    height: auto;
+    margin: 0;
+    padding: 20px; /* Remove margin from the logo */
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    background-color: #141619;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #ccc;
+    padding: 20px; /* Remove padding from the bottom section */
+    margin: 0; /* Remove margin from the bottom section */
+    width: 100%; /* Ensure it stretches across the full width */
+}
+
+.footer-bottom-left {
+    text-align: left;
+    margin: 0; /* Remove margin */
+}
+
+.footer-bottom-right {
+    text-align: right;
+    margin: 0; /* Remove margin */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .footer-container-1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .footer-right {
+        justify-content: center;
+    }
+
+    .footer-logo {
+        margin-top: 10px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-bottom-left {
+        margin-bottom: 10px;
+    }
+}
+
+#custom section
+/* Custom Section */
+.custom-section {
+    background-color: #f5f5f5; /* Light background color */
+    padding: 50px 20px;
+}
+
+/* Section Styling */
+.section {
+    margin-bottom: 50px;
+}
+
+/* Section Heading */
+.section-heading-31 {
+    font-size: 56px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Section Description */
+.section-description-31 {
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#arrow
+/* Container for the buttons */
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Vertically center the buttons */
+    width: 100%; /* Ensure the container takes full width */
+    height: 100vh; /* Make the container take the full height of the screen (optional, if needed for centering) */
+    position: absolute; /* Ensure it's positioned relative to the body */
+    top: 0;
+    left: 0;
+}
+
+/* Style for the arrow buttons */
+.arrow-button {
+    font-size: 30px; /* Size of the arrows */
+    padding: 10px 15px; /* Padding for the button */
+    background-color: transparent;
+    border: 2px solid #665DCD; /* Outline border color */
+    color: #665DCD; /* Arrow color */
+    text-decoration: none; /* Remove underline */
+    border-radius:50%; /* Make buttons circular */
+    margin-left: 46%;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Hover effect for the buttons */
+.arrow-button:hover {
+    background-color: #665DCD; /* Change background on hover */
+    color: white; /* Change text color on hover */
+}
+
+/* Optional specific styling for the left button */
+.left-button {
+    margin-right: 10px; /* Add space between buttons */
+}
+
+/* Optional specific styling for the right button */
+.right-button {
+    margin-left: 10px; /* Add space between buttons */
+}
+#textcontainer
+.text-content{
+    font-size: 32px;
+}
+.text-display-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    font-size: 26px;
+}
+
+/* Each text item */
+.text-item {
+    display: none; /* Hide all text items by default */
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Only show active text item */
+.text-item.active {
+    display: block;
+}
+
+/* Member details styling */
+.member-info {
+    display: flex; /* Ensures the content is laid out in a row */
+    align-items: center; /* Vertically centers the items */
+    justify-content: center; /* Aligns them in the center */
+    margin-top: 10px;
+}
+
+/* Adjust styles for name and role */
+.name, .role {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px; /* Adds space between text and logo */
+}
+
+/* Member logo styling */
+.member-logo {
+    width: 100px;
+    height: 50px;
+}
+
+/* Optional: Add some basic styling to the container */
+.text-display-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    
+}
+
+
