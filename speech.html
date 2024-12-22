@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text to Speech Page</title>
+    <script>
+      async function convertTextToSpeech() {
+        const text = document.getElementById("text").value;
+        const volume = document.getElementById("volume").value;
+
+        if (!text.trim()) {
+          alert("Please enter some text!");
+          return;
+        }
+
+        try {
+          // Send data to backend
+          const response = await fetch("/convert", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ text: text, volume: parseInt(volume) || 0 }),
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText);
+          }
+
+          // Get audio file URL
+          const audioBlob = await response.blob();
+          const audioUrl = URL.createObjectURL(audioBlob);
+
+          // Display audio controls
+          const audioElement = document.getElementById("audio");
+          audioElement.src = audioUrl;
+          audioElement.style.display = "block";
+          audioElement.play();
+        } catch (error) {
+          alert(`Error: ${error.message}`);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Text to Speech Converter</h1>
+
+    <label for="text">Enter Text:</label><br />
+    <textarea
+      id="text"
+      rows="4"
+      cols="50"
+      placeholder="Type your text here"
+    ></textarea
+    ><br /><br />
+
+    <label for="volume">Volume Adjustment (dB):</label><br />
+    <input type="number" id="volume" placeholder="e.g., -10, 5" /><br /><br />
+
+    <button onclick="convertTextToSpeech()">Convert to Speech</button
+    ><br /><br />
+
+    <audio id="audio" controls style="display: none"></audio>
+
+    <br /><br />
+    <a href="/">Go back to Home</a>
+  </body>
+</html>
