@@ -5,44 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text to Speech Page</title>
     <script>
-      async function convertTextToSpeech() {
-        const text = document.getElementById("text").value;
-        const volume = document.getElementById("volume").value;
-
-        if (!text.trim()) {
-          alert("Please enter some text!");
-          return;
-        }
-
-        try {
-          // Send data to backend
-          const response = await fetch("/convert", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ text: text, volume: parseInt(volume) || 0 }),
-          });
-
-          if (!response.ok) {
-            const errorText = await response.text();
-            throw new Error(errorText);
-          }
-
-          // Get audio file URL
-          const audioBlob = await response.blob();
-          const audioUrl = URL.createObjectURL(audioBlob);
-
-          // Display audio controls
-          const audioElement = document.getElementById("audio");
-          audioElement.src = audioUrl;
-          audioElement.style.display = "block";
-          audioElement.play();
-        } catch (error) {
-          alert(`Error: ${error.message}`);
-        }
+    async function convertTextToSpeech() {
+      const text = document.getElementById("text").value;
+      const volume = document.getElementById("volume").value;
+    
+      if (!text.trim()) {
+        alert("Please enter some text!");
+        return;
       }
-    </script>
+    
+      try {
+        // Send data to backend
+        const response = await fetch("/convert", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: text, volume: parseInt(volume) || 0 }),
+        });
+    
+        // Log the response status
+        console.log("Response status: ", response.status);
+        console.log("Response body: ", await response.text());
+    
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(errorText);
+        }
+    
+        // Get audio file URL
+        const audioBlob = await response.blob();
+        const audioUrl = URL.createObjectURL(audioBlob);
+    
+        // Display audio controls
+        const audioElement = document.getElementById("audio");
+        audioElement.src = audioUrl;
+        audioElement.style.display = "block";
+        audioElement.play();
+      } catch (error) {
+        console.error("Error during conversion: ", error);
+        alert(`Error: ${error.message}`);
+      }
+    }
+  </script>
   </head>
   <body>
     <h1>Text to Speech Converter</h1>

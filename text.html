@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Text Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    #randomText {
+      margin: 20px 0;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Random Text Generator</h1>
+  <p id="randomText">Loading random text...</p>
+</div>
+
+<script>
+  // Function to generate and display random text
+  function generateRandomText() {
+    const texts = [
+      "The quick brown fox jumps over the lazy dog.",
+      "In the middle of difficulty lies opportunity.",
+      "A journey of a thousand miles begins with a single step.",
+      "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+      "The only limit to our realization of tomorrow is our doubts of today.",
+      "You must be the change you wish to see in the world.",
+      "The best time to plant a tree was 20 years ago. The second best time is now."
+    ];
+
+    const randomText = texts[Math.floor(Math.random() * texts.length)];
+    document.getElementById('randomText').innerText = randomText;
+  }
+
+  // Call the function to generate and display the text when the page loads
+  window.onload = generateRandomText;
+</script>
+
+</body>
+</html>
