@@ -117,7 +117,7 @@
 </div>
 
 <div id="botDiv">
-  <img src="" alt="Bot Image Placeholder">
+  <img src="../Images/sri.png" alt="Bot Image Placeholder">
   <p id="botText">You clicked on an object!</p>
 </div>
 
@@ -245,9 +245,61 @@
       // Show the bot div
       const botDiv = document.getElementById('botDiv');
       botDiv.style.right = '20px';
-      setTimeout(() => {
-        botDiv.style.right = '-300px';
-      }, 3000);
+      let objectDescriptions = {};
+
+  async function loadDescriptions() {
+  try {
+    const response = await fetch('/model-1/object_descriptions.json');
+    const data = await response.json();
+    console.log('Descriptions loaded:', data); // Add this to debug and ensure the data is loaded
+    return data.objects; // Return the array of objects with their descriptions
+  } catch (error) {
+    console.error('Error loading descriptions:', error);
+    alert('Failed to load descriptions.');
+    return []; // Return an empty array if there's an error
+  }
+}
+
+document.addEventListener('click', async (event) => {
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+
+  const intersects = raycaster.intersectObjects(scene.children, true);
+
+  if (intersects.length > 0) {
+    const clickedObject = intersects[0].object;
+    const clickedObjectName = clickedObject.name;
+    console.log('Clicked on:', clickedObjectName);
+
+    // Update the clicked object name in the UI
+    document.getElementById('clickedObjectName').innerText = `Clicked: ${clickedObjectName}`;
+
+    // Load the descriptions from the server
+    const objects = await loadDescriptions();
+
+    // Find the object in the JSON by name
+    const objectData = objects.find(obj => obj.name === clickedObjectName);
+
+    // Check if the object was found and has descriptions
+    let description = 'No description available';
+    if (objectData && objectData.descriptions && objectData.descriptions.length > 0) {
+      description = objectData.descriptions.join('\n'); // Join descriptions with a newline if there are multiple
+    }
+
+    // Update the description in the bot div
+    const botText = document.getElementById('botText');
+    botText.innerText = description;
+
+    // Show the bot div
+    const botDiv = document.getElementById('botDiv');
+    botDiv.style.right = '20px';
+  }
+});
+
+
+      
     }
   }
 
@@ -271,13 +323,15 @@
     // Get the audio file URL from the response
     const audioUrl = data.audio_url;
 
-    // Create an Audio object and play the audio
+    // Play the generated audio
     const audio = new Audio(audioUrl);
     audio.play();
+    console.log(`Playing audio: ${audioUrl}`);
   } catch (error) {
     console.error('Error:', error);
   }
 }
+
 
 async function fetchExternalText() {
     try {

@@ -1,12 +1,12 @@
 import os
 import re
 import threading
-from flask import Flask, send_from_directory, jsonify, request, send_file
+from flask import Flask, send_from_directory, jsonify, request
 from gtts import gTTS
 import time
 
 app = Flask(__name__)
-
+directory_path = os.path.dirname(os.path.abspath(__file__))
 # Define the directory to save the audio files
 AUDIO_FOLDER = os.path.join(os.getcwd(), 'audio')
 if not os.path.exists(AUDIO_FOLDER):
@@ -55,12 +55,18 @@ def generate_audio():
         # Start a background thread to delete the audio file after 2 minutes
         threading.Thread(target=delete_audio_file_after_delay, args=(audio_path, 120)).start()
 
-        # Send the audio file to the client
-        return send_file(audio_path, mimetype="audio/mpeg", as_attachment=False)
+        # Return the file URL in JSON format
+        audio_url = f"/audio/{audio_filename}"  # Assuming the audio folder is served publicly
+        return jsonify({"audio_url": audio_url}), 200
 
     except Exception as e:
         print(f"Error: {str(e)}")
         return jsonify({"error": str(e)}), 500
+
+# Serve audio files from the audio directory
+@app.route('/audio/<path:filename>')
+def serve_audio(filename):
+    return send_from_directory(AUDIO_FOLDER, filename)
 
 # Endpoint to receive the user data (condition, decibel, clicked object)
 @app.route("/submit_data", methods=["POST"])
@@ -84,7 +90,7 @@ def submit_data():
 def serve_static_files(filename):
     return send_from_directory(os.getcwd(), filename)
 
-# Clean up the audio files after they are played
+# Cleanup endpoint to delete all audio files
 @app.route('/cleanup', methods=["POST"])
 def cleanup():
     try:
@@ -96,6 +102,9 @@ def cleanup():
     except Exception as e:
         print(f"Error during cleanup: {str(e)}")
         return jsonify({"error": str(e)}), 500
-
+@app.route('/model-1/object_descriptions.json')
+def serve_descriptions():
+    # Send the file from the directory where app.py is located
+    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'object_descriptions.json')
 if __name__ == "__main__":
     app.run(debug=True)
