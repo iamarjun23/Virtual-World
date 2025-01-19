@@ -9,6 +9,42 @@
       ]
     },
     {
+      "name": "Solar_System_Name_Tag",
+      "descriptions": [
+        "A label or tag designed to represent or identify objects within the solar system.",
+        "Typically includes the names of planets, moons, stars, or other celestial bodies.",
+        "Used for educational, decorative, or organizational purposes in schools, museums, or space-related exhibits."
+      ]
+    },    
+    {
+      "name": "chair_Stand",
+      "descriptions": [
+        "A functional piece of furniture designed to support a chair in a stable and elevated position.",
+        "Commonly used in offices, workshops, or other specialized settings to enhance ergonomics or storage."
+      ]
+    },
+    {
+      "name": "chair_stand",
+      "descriptions": [
+        "A functional piece of furniture designed to support a chair in a stable and elevated position.",
+        "Commonly used in offices, workshops, or other specialized settings to enhance ergonomics or storage."
+      ]
+    },
+    {
+      "name": "Chair_Stand",
+      "descriptions": [
+        "A functional piece of furniture designed to support a chair in a stable and elevated position.",
+        "Commonly used in offices, workshops, or other specialized settings to enhance ergonomics or storage."
+      ]
+    },
+    {
+      "name": "Chair_Stand_1",
+      "descriptions": [
+        "A functional piece of furniture designed to support a chair in a stable and elevated position.",
+        "Commonly used in offices, workshops, or other specialized settings to enhance ergonomics or storage."
+      ]
+    },
+    {
       "name": "microscope",
       "descriptions": [
         "A device used to magnify small objects or details.",
@@ -17,7 +53,7 @@
       ]
     },
     {
-      "name": "lid.001",
+      "name": "lid001",
       "descriptions": [
         "A duplicate lid for covering containers.",
         "Can be used to seal jars or bottles.",
@@ -49,7 +85,7 @@
       ]
     },
     {
-      "name": "test tube spinner",
+      "name": "test_tube_spinner",
       "descriptions": [
         "A tool for rotating or spinning test tubes for experiments.",
         "Helps in separating substances by centrifugal force.",
@@ -57,7 +93,7 @@
       ]
     },
     {
-      "name": "Table.001",
+      "name": "Table001",
       "descriptions": [
         "A duplicate of a standard flat-surfaced table.",
         "Useful for holding items or performing tasks.",
@@ -73,7 +109,7 @@
       ]
     },
     {
-      "name": "Fire extinguisher",
+      "name": "Fire_extinguisher",
       "descriptions": [
         "A device to extinguish fires in emergencies.",
         "Contains chemicals to suppress flames effectively.",
@@ -81,15 +117,16 @@
       ]
     },
     {
-      "name": "chair.001",
+      "name": "Chair-1",
       "descriptions": [
         "A duplicate of a chair used for seating.",
         "Provides comfort and support for sitting.",
         "Can be used in various environments like offices or homes."
       ]
     },
+    
     {
-      "name": "chair.002",
+      "name": "chair002",
       "descriptions": [
         "Another duplicate chair used for seating.",
         "Offers ergonomic support for long sitting durations.",
@@ -105,7 +142,15 @@
       ]
     },
     {
-      "name": "test tube holder",
+      "name": "Chair",
+      "descriptions": [
+        "A piece of furniture designed for sitting.",
+        "Can have various designs, including with or without armrests.",
+        "Used in offices, homes, and public spaces."
+      ]
+    },
+    {
+      "name": "test_tube_holder",
       "descriptions": [
         "A tool used to hold test tubes securely during experiments.",
         "Prevents test tubes from tipping over or breaking.",
@@ -113,7 +158,7 @@
       ]
     },
     {
-      "name": "test tube holder ",
+      "name": "test_tube_holder_",
       "descriptions": [
         "Duplicate of a test tube holder.",
         "Useful for safely handling test tubes.",
@@ -137,7 +182,7 @@
       ]
     },
     {
-      "name": "titratation flask",
+      "name": "Titration_Flask",
       "descriptions": [
         "A flask used for titration in chemistry experiments.",
         "Helps in determining concentrations of solutions.",
@@ -145,7 +190,7 @@
       ]
     },
     {
-      "name": "mesuring flask.002",
+      "name": "mesuring_flask001",
       "descriptions": [
         "Another measuring flask for precise liquid measurement.",
         "Calibrated for accuracy in experiments.",
@@ -153,7 +198,7 @@
       ]
     },
     {
-      "name": "mesuring flask",
+      "name": "mesuring_flask",
       "descriptions": [
         "A flask used to measure liquid volumes accurately.",
         "Marked with graduations for precision.",
@@ -161,7 +206,7 @@
       ]
     },
     {
-      "name": "wall with windows",
+      "name": "wall_with_windows",
       "descriptions": [
         "A wall structure that includes window openings.",
         "Allows light and air to pass through.",
@@ -169,7 +214,15 @@
       ]
     },
     {
-      "name": "mesuring flask.001",
+      "name": "Room",
+      "descriptions": [
+        "An enclosed space within a building, typically defined by walls, a floor, and a ceiling.",
+        "Designed for specific purposes such as living, sleeping, working, or storage.",
+        "May include features like windows, doors, and furnishings for functionality and comfort."
+      ]
+    },    
+    {
+      "name": "mesuring_flask002",
       "descriptions": [
         "A duplicate measuring flask.",
         "Used for handling liquids in labs.",
@@ -177,7 +230,7 @@
       ]
     },
     {
-      "name": "boiling flask",
+      "name": "boiling_flask",
       "descriptions": [
         "A round-bottom flask used for boiling liquids.",
         "Designed to withstand high temperatures.",
@@ -185,7 +238,7 @@
       ]
     },
     {
-      "name": "boiling flask.001",
+      "name": "boiling_flask001",
       "descriptions": [
         "Duplicate of a boiling flask.",
         "Used in chemical reactions requiring heat.",
@@ -193,7 +246,15 @@
       ]
     },
     {
-      "name": "test tube.001",
+      "name": "test_tube001",
+      "descriptions": [
+        "Duplicate of a test tube.",
+        "Useful for holding small liquid samples.",
+        "Essential in experiments requiring small-scale reactions."
+      ]
+    },
+    {
+      "name": "test_tube-1",
       "descriptions": [
         "Duplicate of a test tube.",
         "Useful for holding small liquid samples.",
@@ -209,15 +270,7 @@
       ]
     },
     {
-      "name": "Object_110",
-      "descriptions": [
-        "A generic object without a defined purpose.",
-        "Placeholder item in a system or experiment.",
-        "Could represent an abstract or unidentified object."
-      ]
-    },
-    {
-      "name": "Earth model",
+      "name": "Earth_model",
       "descriptions": [
         "A miniature representation of the Earth.",
         "Often used in geography or astronomy education.",
@@ -225,7 +278,7 @@
       ]
     },
     {
-      "name": "Earth model Stand",
+      "name": "Earth_model_Stand",
       "descriptions": [
         "A stand to hold the Earth model in place.",
         "Provides stability for display or study.",
@@ -233,7 +286,7 @@
       ]
     },
     {
-      "name": "nuclear Waste",
+      "name": "nuclear_Waste",
       "descriptions": [
         "A representation of hazardous radioactive waste.",
         "Typically contained in barrels for safety.",
@@ -241,7 +294,7 @@
       ]
     },
     {
-      "name": "curtain.001",
+      "name": "curtain001",
       "descriptions": [
         "A duplicate of a fabric curtain.",
         "Used for blocking light or ensuring privacy.",
@@ -249,15 +302,7 @@
       ]
     },
     {
-      "name": "Object_14",
-      "descriptions": [
-        "A generic object without a defined purpose.",
-        "Could be a placeholder or abstract item.",
-        "Used in systems or models as a filler."
-      ]
-    },
-    {
-      "name": "nuclear waste",
+      "name": "nuclear_waste",
       "descriptions": [
         "Another representation of hazardous radioactive waste.",
         "Commonly shown as barrels or containers.",
@@ -265,7 +310,7 @@
       ]
     },
     {
-      "name": "Earth model.001",
+      "name": "Earth_model001",
       "descriptions": [
         "Duplicate of the Earth model.",
         "Shows geographical features and boundaries.",
@@ -273,7 +318,7 @@
       ]
     },
     {
-      "name": "Sun model",
+      "name": "Sun_model",
       "descriptions": [
         "A miniature representation of the Sun.",
         "Shows solar activity or physical characteristics.",
@@ -281,7 +326,7 @@
       ]
     },
     {
-      "name": "mercury model",
+      "name": "mercury_model",
       "descriptions": [
         "A miniature representation of the planet Mercury.",
         "Highlights surface features and position in the Solar System.",
@@ -289,7 +334,7 @@
       ]
     },
     {
-      "name": "Venus model",
+      "name": "Venus_model",
       "descriptions": [
         "A miniature representation of the planet Venus.",
         "Depicts surface details and atmospheric conditions.",
@@ -297,7 +342,7 @@
       ]
     },
     {
-      "name": "Mars model",
+      "name": "Mars_model",
       "descriptions": [
         "A miniature representation of the planet Mars.",
         "Shows surface features like craters and valleys.",
@@ -305,7 +350,7 @@
       ]
     },
     {
-      "name": "jupiter model",
+      "name": "jupiter_model",
       "descriptions": [
         "A miniature representation of the planet Jupiter.",
         "Highlights its Great Red Spot and cloud bands.",
@@ -313,7 +358,7 @@
       ]
     },
     {
-      "name": "Saturn model",
+      "name": "Saturn_model",
       "descriptions": [
         "A miniature representation of the planet Saturn.",
         "Depicts its iconic rings and gaseous surface.",
@@ -321,7 +366,7 @@
       ]
     },
     {
-      "name": "Neptune model",
+      "name": "Neptune_model",
       "descriptions": [
         "A miniature representation of the planet Neptune.",
         "Highlights its deep blue color and atmospheric features.",
@@ -329,15 +374,7 @@
       ]
     },
     {
-      "name": "Object_139",
-      "descriptions": [
-        "A generic object without a defined purpose.",
-        "Could represent an abstract concept or placeholder.",
-        "Used in models or experiments without specific details."
-      ]
-    },
-    {
-      "name": "Soloar System model",
+      "name": "Solar_System_model",
       "descriptions": [
         "A model representing the entire Solar System.",
         "Shows planets, moons, and their relative positions.",
@@ -345,7 +382,7 @@
       ]
     },
     {
-      "name": "Solor system model Stand",
+      "name": "Solar_system_model_Stand",
       "descriptions": [
         "A stand for holding the Solar System model.",
         "Provides stability and ease of display.",
@@ -361,7 +398,7 @@
       ]
     },
     {
-      "name": "C6 H12 model",
+      "name": "Carbon_Model",
       "descriptions": [
         "A model representing a chemical compound, likely cyclohexane.",
         "Useful for teaching molecular structures in chemistry.",
@@ -369,7 +406,7 @@
       ]
     },
     {
-      "name": "C6H12 model",
+      "name": "Carbon_Model-1",
       "descriptions": [
         "Duplicate of the C6 H12 chemical compound model.",
         "Used for educational purposes in chemistry.",
@@ -385,9 +422,16 @@
       ]
     },
     {
-      "name": "Fire extinguisher.001",
+      "name": "microscope_",
       "descriptions": [
-        "Duplicate of a fire extinguisher.",
+        "A duplicate of a device for magnifying objects.",
+        "Essential in studying biology, materials, and tiny details.",
+        "Helps visualize objects not visible to the naked eye."
+      ]
+    },
+    {
+      "name": "Fire_extinguisher001",
+      "descriptions": [
         "Used for suppressing flames in emergencies.",
         "Contains chemicals for efficient fire control."
       ]
@@ -401,7 +445,7 @@
       ]
     },
     {
-      "name": "wall with windows.001",
+      "name": "Room",
       "descriptions": [
         "Duplicate of a wall structure with windows.",
         "Allows natural light and ventilation.",

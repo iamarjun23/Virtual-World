@@ -7,6 +7,7 @@ import time
 
 app = Flask(__name__)
 directory_path = os.path.dirname(os.path.abspath(__file__))
+
 # Define the directory to save the audio files
 AUDIO_FOLDER = os.path.join(os.getcwd(), 'audio')
 if not os.path.exists(AUDIO_FOLDER):
@@ -102,9 +103,12 @@ def cleanup():
     except Exception as e:
         print(f"Error during cleanup: {str(e)}")
         return jsonify({"error": str(e)}), 500
+
+# Endpoint to serve object_descriptions.json
 @app.route('/model-1/object_descriptions.json')
 def serve_descriptions():
     # Send the file from the directory where app.py is located
     return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'object_descriptions.json')
+
 if __name__ == "__main__":
     app.run(debug=True)
