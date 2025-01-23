@@ -4,10 +4,10 @@ import threading
 from flask import Flask, send_from_directory, jsonify, request
 from gtts import gTTS
 import time
+import hashlib
 
 app = Flask(__name__)
 directory_path = os.path.dirname(os.path.abspath(__file__))
-
 # Define the directory to save the audio files
 AUDIO_FOLDER = os.path.join(os.getcwd(), 'audio')
 if not os.path.exists(AUDIO_FOLDER):
@@ -31,38 +31,73 @@ def index():
     return send_from_directory(os.getcwd(), 'index.html')
 
 # API for text-to-speech conversion
+ # Add this to the imports if not already present
+
 @app.route("/generate_audio", methods=["POST"])
 def generate_audio():
     try:
         # Parse JSON data from the request
         data = request.get_json()
         text = data.get("text", "").strip()
+        decibel_value = data.get("decibelValue", None)
+
+        # Log the input text and decibel value for debugging
+        print(f"Received text for TTS: {text}")
+        print(f"Received decibel value: {decibel_value}")
 
         # Clean the object name (remove underscores and numbers)
         cleaned_text = clean_object_name(text)
 
         # If no text is provided, return an error
         if not cleaned_text:
+            print("Error: Text input is empty")
             return jsonify({"error": "Text input is empty"}), 400
 
-        # Create a temporary file to save the audio
-        audio_filename = f"{cleaned_text}.mp3"
+        # Ensure the directory exists
+        if not os.path.exists(AUDIO_FOLDER):
+            os.makedirs(AUDIO_FOLDER)
+
+        # Generate a short, safe filename
+        hash_value = hashlib.md5((cleaned_text + str(decibel_value)).encode()).hexdigest()[:8]  # Create a hash for uniqueness
+        audio_filename = f"audio_{hash_value}.mp3"
         audio_path = os.path.join(AUDIO_FOLDER, audio_filename)
 
+        # Log the audio path for debugging
+        print(f"Saving TTS audio to: {audio_path}")
+
+        # Use decibel value to control TTS settings
+        # For simplicity, map decibelValue to speed
+        if decibel_value:
+            try:
+                decibel_value = float(decibel_value)
+                if decibel_value < 50:
+                    slow = True  # Lower decibels -> slower speech
+                else:
+                    slow = False  # Higher decibels -> faster speech
+            except ValueError:
+                print("Invalid decibel value. Using default speed.")
+                slow = False
+        else:
+            slow = False  # Default speed if decibelValue is not provided
+
         # Convert text to speech and save the file
-        tts = gTTS(text=cleaned_text, lang="en", slow=False)
+        tts = gTTS(text=cleaned_text, lang="en", slow=slow)
         tts.save(audio_path)
 
         # Start a background thread to delete the audio file after 2 minutes
         threading.Thread(target=delete_audio_file_after_delay, args=(audio_path, 120)).start()
 
-        # Return the file URL in JSON format
+        # Log the success and file URL
         audio_url = f"/audio/{audio_filename}"  # Assuming the audio folder is served publicly
+        print(f"Audio file successfully created: {audio_url}")
         return jsonify({"audio_url": audio_url}), 200
 
     except Exception as e:
+        # Log the error for debugging purposes
         print(f"Error: {str(e)}")
         return jsonify({"error": str(e)}), 500
+
+
 
 # Serve audio files from the audio directory
 @app.route('/audio/<path:filename>')

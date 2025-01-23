@@ -4,79 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Science Lab</title>
   <link rel="icon" type="image/x-icon" href="./class.png">
-  <style>
-    body { margin: 0; overflow: hidden; }
-    canvas { display: block; }
-    #info { 
-      position: absolute; top: 10px; left: 10px; color: white; font-family: Arial, sans-serif; font-size: 14px; 
-      background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 5px;
-      z-index: 1;
-    }
-    #introDiv {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      border-radius: 8px;
-      text-align: center;
-      z-index: 2;
-    }
-    #submitButton {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    #submitButton:hover {
-      background-color: #45a049;
-    }
-    #clickedObjectDisplay {
-      position: absolute;
-      top: 10%;
-      left: 0;
-      width: 300px;
-      height: auto;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      border-radius: 8px;
-      z-index: 2;
-      overflow: auto;
-    }
-    #botDiv {
-      position: fixed;
-      top: 50%;
-      right: -300px;
-      transform: translateY(-50%);
-      width: 250px;
-      height: 300px;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
-      border-radius: 10px;
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      text-align: center;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      transition: right 0.5s ease;
-      z-index: 3;
-    }
-    #botDiv img {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="index.css">
+  
   <script type="importmap">
     {
       "imports": {
@@ -94,17 +23,6 @@
 <div id="introDiv">
   <p id="randomText"></p>
   <div>
-    <label>
-      <input type="radio" name="condition" value="Deaf"> Deaf
-    </label>
-    <label>
-      <input type="radio" name="condition" value="Blind"> Blind
-    </label>
-    <label>
-      <input type="radio" name="condition" value="Neither"> Neither
-    </label>
-  </div>
-  <div>
     <label for="decibelInput">Hearing Decibel Threshold:</label>
     <input type="number" id="decibelInput" placeholder="Enter decibel value">
   </div>
@@ -112,16 +30,125 @@
 </div>
 
 <div id="clickedObjectDisplay">
-  <p id="clickedObjectName">No object clicked</p>
+  <p id="clickedObjectName">No object are clicked</p>
   <p id="randomText"></p>
 </div>
 
 <div id="botDiv">
-  <img src="../Images/sri.png" alt="Bot Image Placeholder">
+  <img src="../Images/bangboo.jpg" alt="Bot Image Placeholder">
   <p id="botText">You clicked on an object!</p>
+  <div id="buttonDiv">
+    <p> Do u Want to hear the Description</p>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+  </div>
 </div>
 
+
 <script type="module">
+  document.addEventListener('contextmenu', function(event) {
+  event.preventDefault(); // Prevents the right-click menu from appearing
+});
+  document.getElementById("submitButton").addEventListener("click", async () => {
+      // Collect input data
+      const decibelValue = document.getElementById("decibelInput").value;
+
+      // Additional data to send (e.g., condition or clicked object)
+      const dataToSend = {
+        condition: "Hearing Test",  // Example condition
+        decibelValue: decibelValue || "Not Provided",  // Default if empty
+        clickedObject: "Submit Button"  // Tracks what was clicked
+      };
+
+      try {
+        // Send a POST request to the backend
+        const response = await fetch("/submit_data", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(dataToSend)
+        });
+
+        // Handle the response from the server
+        const result = await response.json();
+        if (response.ok) {
+          alert("Data submitted successfully: " + JSON.stringify(result.data));
+        } else {
+          alert("Error: " + result.error);
+        }
+      } catch (error) {
+        console.error("Error submitting data:", error);
+        alert("Failed to submit data. Please try again.");
+      }
+    });
+ document.getElementById("yesButton").addEventListener("click", function () {
+    const objectName = document.getElementById('clickedObjectName').innerText.replace('You have Clicked on: ', '');
+    fetchAudi(objectName);
+});
+
+document.getElementById("noButton").addEventListener("click", function () {
+    alert("You clicked No!");
+});
+document.getElementById('botDiv').addEventListener('click', function (event) {
+    // Stop the event from propagating to the scene
+    event.stopPropagation();
+});
+document.getElementById('introDiv').addEventListener('click', function (event) {
+    // Stop the event from propagating to the scene
+    event.stopPropagation();
+});
+async function fetchAudi(clickedObjectName) {
+    try {
+        // Remove the "You have Clicked on: " prefix and trim any whitespace
+        const trimmedName = clickedObjectName
+        .replace(/^(You have Clicked on :|Clicked:)/, '') // Remove the prefix
+        .replace(/\s+/g, '_') // Replace spaces with underscores
+        .replace(/^_+|_+$/g, '') // Remove underscores from the start and end
+        .trim(); // Trim any remaining whitespace
+
+        console.log(`Trimmed object name: "${trimmedName}"`);
+
+        // Fetch the object descriptions from the server
+        const response = await fetch('./object_descriptions.json');
+        const data = await response.json();
+
+        console.log('Descriptions loaded:', data);
+
+        // Find the object data
+        const objectData = data.objects.find(obj => obj.name.trim().toLowerCase() === trimmedName.toLowerCase());
+        if (objectData) {
+            const descriptions = objectData.descriptions.join('\n');
+            console.log(`Descriptions found for ${trimmedName}: ${descriptions}`);
+
+            // Send request to generate audio
+            const audioResponse = await fetch('/generate_audio', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    text: descriptions,
+                    filename: `${trimmedName.replace(/\s+/g, '_')}.mp3`
+                })
+            });
+
+            if (audioResponse.ok) {
+                const audioData = await audioResponse.json();
+                const audioUrl = audioData.audio_url;
+                const audio = new Audio(audioUrl);
+                audio.play();
+                console.log(`Playing audio: ${audioUrl}`);
+            } else {
+                const errorText = await audioResponse.text();
+                throw new Error(`Server error: ${errorText}`);
+            }
+        } else {
+            throw new Error(`No object found with name: ${trimmedName}`);
+        }
+    } catch (error) {
+        console.error('Error fetching or generating audio:', error);
+    }
+}
+
   import * as THREE from 'three';
   import { GLTFLoader } from 'GLTFLoader';
 
@@ -151,7 +178,7 @@
   const loader = new GLTFLoader();
 
   loader.load(
-    'classroom.glb',
+    'space_station.glb',
     function (gltf) {
       const model = gltf.scene;
       model.position.set(0, 0, 0);
@@ -170,6 +197,7 @@
       console.error('An error occurred loading the GLB model:', error);
     }
   );
+
 
   function generateRandomText() {
     const randomTexts = [
@@ -233,7 +261,7 @@
 
     if (intersects.length > 0) {
       const clickedObject = intersects[0].object;
-      const clickedObjectName = clickedObject.name;
+      const clickedObjectName = clickedObject.name.replace(/\s+/g, '_').replace(/^_+|_+$/g, '').trim();
       console.log('Clicked on:', clickedObjectName);
 
       // Update the clicked object name in the UI
@@ -270,31 +298,45 @@ document.addEventListener('click', async (event) => {
 
   if (intersects.length > 0) {
     const clickedObject = intersects[0].object;
-    const clickedObjectName = clickedObject.name;
+    const clickedObjectName = clickedObject.name.replace(/\s+/g, '_').replace(/^_+|_+$/g, '').trim();
     console.log('Clicked on:', clickedObjectName);
 
-    // Update the clicked object name in the UI
-    document.getElementById('clickedObjectName').innerText = `Clicked: ${clickedObjectName}`;
+// Update the clicked object name in the UI
+document.getElementById('clickedObjectName').innerText = 
+  `You have Clicked on : ${clickedObjectName.replace(/[\d]/g, '').replace(/_/g, ' ')}`;
 
-    // Load the descriptions from the server
-    const objects = await loadDescriptions();
+// Load the descriptions from the server
+const objects = await loadDescriptions();
 
-    // Find the object in the JSON by name
-    const objectData = objects.find(obj => obj.name === clickedObjectName);
+// Find the object in the JSON by name
+const objectData = objects.find(obj => obj.name === clickedObjectName);
 
-    // Check if the object was found and has descriptions
-    let description = 'No description available';
-    if (objectData && objectData.descriptions && objectData.descriptions.length > 0) {
-      description = objectData.descriptions.join('\n'); // Join descriptions with a newline if there are multiple
-    }
+// Function to get a random subset of descriptions and display them each on a new line
+function getRandomDescriptions(descriptions, count = 3) {
+  if (descriptions && descriptions.length > 0) {
+    // Shuffle descriptions to randomize
+    const shuffledDescriptions = descriptions.sort(() => Math.random() - 0.5);
+    // Pick the first 'count' number of descriptions after shuffling
+    const selectedDescriptions = shuffledDescriptions.slice(0, count);
+    return selectedDescriptions.join('<br/>'); // Join the selected descriptions with <br/>
+  }
+  return 'No description available'; // Default message if no descriptions are available
+}
 
-    // Update the description in the bot div
-    const botText = document.getElementById('botText');
-    botText.innerText = description;
+// Check if the object was found and has descriptions
+let description = 'No description available';
+if (objectData && objectData.descriptions && objectData.descriptions.length > 0) {
+  // Get a random set of descriptions
+  description = getRandomDescriptions(objectData.descriptions, 3); // You can change the number of random descriptions
+}
 
-    // Show the bot div
-    const botDiv = document.getElementById('botDiv');
-    botDiv.style.right = '20px';
+// Update the description in the bot div
+const botText = document.getElementById('botText');
+botText.innerHTML = description; // Use innerHTML to insert line breaks
+
+// Show the bot div
+showBotDiv(); // Call to show the bot div
+
   }
 });
 
@@ -302,6 +344,22 @@ document.addEventListener('click', async (event) => {
       
     }
   }
+  function showBotDiv() {
+    const botDiv = document.getElementById('botDiv');
+    botDiv.style.right = '20px';  // Slide the bot div in from the right
+
+    // Disable interaction with the canvas behind the bot div
+    document.querySelector('canvas').style.pointerEvents = 'none';
+}
+
+// Function to hide the bot div and re-enable interactions with the scene
+function hideBotDiv() {
+    const botDiv = document.getElementById('botDiv');
+    botDiv.style.right = '-300px'; // Slide the bot div out of view
+
+    // Enable interaction with the canvas
+    document.querySelector('canvas').style.pointerEvents = 'auto';
+}
 
   async function fetchAudio(objectName) {
   try {

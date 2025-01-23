@@ -6,6 +6,10 @@
         "A smooth surface for writing or drawing using dry-erase markers.",
         "Used in classrooms and offices for presenting information.",
         "A reusable board for brainstorming ideas and planning."
+      ],
+      "additional_descriptions": [
+        "A versatile tool for visualizing concepts and organizing thoughts.",
+        "A clean, writable surface perfect for quick note-taking or illustrating ideas."
       ]
     },
     {
@@ -14,20 +18,10 @@
         "A label or tag designed to represent or identify objects within the solar system.",
         "Typically includes the names of planets, moons, stars, or other celestial bodies.",
         "Used for educational, decorative, or organizational purposes in schools, museums, or space-related exhibits."
-      ]
-    },    
-    {
-      "name": "chair_Stand",
-      "descriptions": [
-        "A functional piece of furniture designed to support a chair in a stable and elevated position.",
-        "Commonly used in offices, workshops, or other specialized settings to enhance ergonomics or storage."
-      ]
-    },
-    {
-      "name": "chair_stand",
-      "descriptions": [
-        "A functional piece of furniture designed to support a chair in a stable and elevated position.",
-        "Commonly used in offices, workshops, or other specialized settings to enhance ergonomics or storage."
+      ],
+      "additional_descriptions": [
+        "Used for educational purposes to identify solar system bodies.",
+        "A useful tool to help understand and organize the vast expanse of space."
       ]
     },
     {
@@ -35,69 +29,70 @@
       "descriptions": [
         "A functional piece of furniture designed to support a chair in a stable and elevated position.",
         "Commonly used in offices, workshops, or other specialized settings to enhance ergonomics or storage."
+      ],
+      "additional_descriptions": [
+        "Improves workspace organization by raising chairs off the floor.",
+        "Helps optimize desk space by elevating seating arrangements."
       ]
     },
     {
-      "name": "Chair_Stand_1",
-      "descriptions": [
-        "A functional piece of furniture designed to support a chair in a stable and elevated position.",
-        "Commonly used in offices, workshops, or other specialized settings to enhance ergonomics or storage."
-      ]
-    },
-    {
-      "name": "microscope",
+      "name": "Microscope",
       "descriptions": [
         "A device used to magnify small objects or details.",
         "Essential for studying microorganisms and cells.",
         "Often used in labs for biological and material analysis."
+      ],
+      "additional_descriptions": [
+        "A vital tool for scientific research and discovery.",
+        "Used to observe minute details invisible to the naked eye."
       ]
     },
     {
-      "name": "lid001",
-      "descriptions": [
-        "A duplicate lid for covering containers.",
-        "Can be used to seal jars or bottles.",
-        "Helps prevent spills or contamination."
-      ]
-    },
-    {
-      "name": "test_tube_mixer",
+      "name": "Test_Tube_Mixer",
       "descriptions": [
         "A device for mixing liquids within test tubes.",
         "Commonly used in chemistry labs for experiments.",
         "Ensures even mixing of solutions in test tubes."
+      ],
+      "additional_descriptions": [
+        "Aids in maintaining consistency in chemical experiments.",
+        "An essential tool in laboratory settings for solution preparation."
       ]
     },
     {
-      "name": "lid",
+      "name": "Lid",
       "descriptions": [
         "A cover for a container to seal it.",
         "Used to protect contents from spilling.",
         "Often made of plastic or metal for durability."
+      ],
+      "additional_descriptions": [
+        "Helps preserve freshness by sealing containers tightly.",
+        "Prevents contamination and keeps contents secure."
       ]
     },
     {
-      "name": "test_tube",
+      "name": "Test_Tube",
       "descriptions": [
         "A small cylindrical container used in scientific experiments.",
         "Made of glass or plastic for holding liquids.",
         "Essential for chemical and biological analysis."
+      ],
+      "additional_descriptions": [
+        "Used for testing or mixing small quantities of substances.",
+        "A key tool in scientific research and experimental processes."
       ]
     },
     {
-      "name": "test_tube_spinner",
+      "name": "Test_Tube_Spinner",
       "descriptions": [
         "A tool for rotating or spinning test tubes for experiments.",
         "Helps in separating substances by centrifugal force.",
         "Often used in laboratory setups for precise experiments."
-      ]
-    },
-    {
-      "name": "Table001",
-      "descriptions": [
-        "A duplicate of a standard flat-surfaced table.",
-        "Useful for holding items or performing tasks.",
-        "Common in labs and offices for supporting equipment."
+      ],
+      "additional_descriptions": [
+        "Facilitates faster and more efficient separation of materials.",
+        "Used for techniques like centrifugation in laboratory experiments."
       ]
     },
     {
@@ -106,39 +101,22 @@
         "A device to control the flow of liquids, typically water.",
         "Often used in sinks and labs for dispensing water.",
         "Can be turned on and off for controlled flow."
+      ],
+      "additional_descriptions": [
+        "A convenient tool for managing liquid distribution.",
+        "Used in a variety of settings, from kitchens to laboratories."
       ]
     },
     {
-      "name": "Fire_extinguisher",
+      "name": "Fire_Extinguisher",
       "descriptions": [
         "A device to extinguish fires in emergencies.",
         "Contains chemicals to suppress flames effectively.",
         "Essential safety equipment in buildings and labs."
-      ]
-    },
-    {
-      "name": "Chair-1",
-      "descriptions": [
-        "A duplicate of a chair used for seating.",
-        "Provides comfort and support for sitting.",
-        "Can be used in various environments like offices or homes."
-      ]
-    },
-    
-    {
-      "name": "chair002",
-      "descriptions": [
-        "Another duplicate chair used for seating.",
-        "Offers ergonomic support for long sitting durations.",
-        "Lightweight and easy to move around."
-      ]
-    },
-    {
-      "name": "chair",
-      "descriptions": [
-        "A piece of furniture designed for sitting.",
-        "Can have various designs, including with or without armrests.",
-        "Used in offices, homes, and public spaces."
+      ],
+      "additional_descriptions": [
+        "A crucial safety tool in preventing or controlling fire outbreaks.",
+        "Provides immediate response during fire emergencies to limit damage."
       ]
     },
     {
@@ -147,22 +125,22 @@
         "A piece of furniture designed for sitting.",
         "Can have various designs, including with or without armrests.",
         "Used in offices, homes, and public spaces."
+      ],
+      "additional_descriptions": [
+        "Available in a variety of materials, including wood, metal, and plastic.",
+        "Provides comfort and support for sitting over extended periods."
       ]
     },
     {
-      "name": "test_tube_holder",
+      "name": "Test_Tube_Holder",
       "descriptions": [
         "A tool used to hold test tubes securely during experiments.",
         "Prevents test tubes from tipping over or breaking.",
         "Made of metal, plastic, or wood for stability."
-      ]
-    },
-    {
-      "name": "test_tube_holder_",
-      "descriptions": [
-        "Duplicate of a test tube holder.",
-        "Useful for safely handling test tubes.",
-        "Often used in chemistry and biology labs."
+      ],
+      "additional_descriptions": [
+        "An important safety tool in chemical and biological experiments.",
+        "Ensures secure handling of test tubes while conducting experiments."
       ]
     },
     {
@@ -171,14 +149,10 @@
         "A flat surface supported by legs for various uses.",
         "Used in labs for placing equipment or performing experiments.",
         "Commonly made of wood, metal, or plastic."
-      ]
-    },
-    {
-      "name": "tap",
-      "descriptions": [
-        "A duplicate tap for controlling liquid flow.",
-        "Commonly installed in sinks for easy access to water.",
-        "Can be adjusted for different flow rates."
+      ],
+      "additional_descriptions": [
+        "Serves as the foundation for many types of workspaces.",
+        "Provides ample space for working, studying, or displaying items."
       ]
     },
     {
@@ -187,94 +161,70 @@
         "A flask used for titration in chemistry experiments.",
         "Helps in determining concentrations of solutions.",
         "Designed with a narrow neck for precise pouring."
+      ],
+      "additional_descriptions": [
+        "A key tool in quantitative chemical analysis.",
+        "Used to mix solutions in precise quantities for reactions."
       ]
     },
     {
-      "name": "mesuring_flask001",
+      "name": "Mesuring_Flask",
       "descriptions": [
         "Another measuring flask for precise liquid measurement.",
         "Calibrated for accuracy in experiments.",
         "Essential for preparing standard solutions."
+      ],
+      "additional_descriptions": [
+        "Often used in laboratories for preparing accurate chemical solutions.",
+        "Marked with measurement lines to ensure precision in liquid handling."
       ]
     },
     {
-      "name": "mesuring_flask",
-      "descriptions": [
-        "A flask used to measure liquid volumes accurately.",
-        "Marked with graduations for precision.",
-        "Used in labs for preparing and measuring solutions."
-      ]
-    },
-    {
-      "name": "wall_with_windows",
+      "name": "Wall_And_Windows",
       "descriptions": [
         "A wall structure that includes window openings.",
         "Allows light and air to pass through.",
         "Common in buildings for ventilation and natural lighting."
+      ],
+      "additional_descriptions": [
+        "Provides shelter and support for structures.",
+        "Offers visual appeal and contributes to energy efficiency."
       ]
     },
     {
-      "name": "Room",
-      "descriptions": [
-        "An enclosed space within a building, typically defined by walls, a floor, and a ceiling.",
-        "Designed for specific purposes such as living, sleeping, working, or storage.",
-        "May include features like windows, doors, and furnishings for functionality and comfort."
-      ]
-    },    
-    {
-      "name": "mesuring_flask002",
-      "descriptions": [
-        "A duplicate measuring flask.",
-        "Used for handling liquids in labs.",
-        "Made of glass or plastic for chemical resistance."
-      ]
-    },
-    {
-      "name": "boiling_flask",
+      "name": "Boiling_flask",
       "descriptions": [
         "A round-bottom flask used for boiling liquids.",
         "Designed to withstand high temperatures.",
         "Common in distillation and heating experiments."
+      ],
+      "additional_descriptions": [
+        "Ideal for heating volatile or chemical liquids.",
+        "Allows for even heating due to its round shape."
       ]
     },
     {
-      "name": "boiling_flask001",
-      "descriptions": [
-        "Duplicate of a boiling flask.",
-        "Used in chemical reactions requiring heat.",
-        "Provides even heat distribution due to its shape."
-      ]
-    },
-    {
-      "name": "test_tube001",
-      "descriptions": [
-        "Duplicate of a test tube.",
-        "Useful for holding small liquid samples.",
-        "Essential in experiments requiring small-scale reactions."
-      ]
-    },
-    {
-      "name": "test_tube-1",
-      "descriptions": [
-        "Duplicate of a test tube.",
-        "Useful for holding small liquid samples.",
-        "Essential in experiments requiring small-scale reactions."
-      ]
-    },
-    {
-      "name": "beaker",
+      "name": "Beaker",
       "descriptions": [
         "A cylindrical container used for mixing and heating liquids.",
         "Graduated markings for approximate measurements.",
         "Essential in chemistry labs for handling chemicals."
+      ],
+      "additional_descriptions": [
+        "Used for pouring, stirring, or heating liquids.",
+        "A fundamental tool in many laboratory procedures."
       ]
     },
     {
-      "name": "Earth_model",
+      "name": "Earth_Model",
       "descriptions": [
         "A miniature representation of the Earth.",
         "Often used in geography or astronomy education.",
         "Shows continents, oceans, and major geographical features."
+      ],
+      "additional_descriptions": [
+        "Used to illustrate Earth's rotation and position in the solar system.",
+        "Aids in understanding Earth's landforms and climate patterns."
       ]
     },
     {
@@ -283,118 +233,142 @@
         "A stand to hold the Earth model in place.",
         "Provides stability for display or study.",
         "Often adjustable for optimal viewing angles."
+      ],
+      "additional_descriptions": [
+        "Keeps the Earth model secure during educational demonstrations.",
+        "Ensures that the model is easily visible and stable."
       ]
     },
     {
-      "name": "nuclear_Waste",
+      "name": "Nuclear_Waste",
       "descriptions": [
         "A representation of hazardous radioactive waste.",
         "Typically contained in barrels for safety.",
         "Symbolizes environmental and safety concerns."
+      ],
+      "additional_descriptions": [
+        "Represents the importance of safe disposal methods.",
+        "Used in educational settings to raise awareness about environmental issues."
       ]
     },
     {
-      "name": "curtain001",
+      "name": "Curtain",
       "descriptions": [
         "A duplicate of a fabric curtain.",
         "Used for blocking light or ensuring privacy.",
         "Can be decorative or functional in nature."
+      ],
+      "additional_descriptions": [
+        "Often used to enhance the aesthetic of a room.",
+        "Helps control the amount of natural light entering a space."
       ]
     },
     {
-      "name": "nuclear_waste",
-      "descriptions": [
-        "Another representation of hazardous radioactive waste.",
-        "Commonly shown as barrels or containers.",
-        "Highlights the need for proper waste management."
-      ]
-    },
-    {
-      "name": "Earth_model001",
-      "descriptions": [
-        "Duplicate of the Earth model.",
-        "Shows geographical features and boundaries.",
-        "Used for educational or decorative purposes."
-      ]
-    },
-    {
-      "name": "Sun_model",
+      "name": "Sun_Model",
       "descriptions": [
         "A miniature representation of the Sun.",
         "Shows solar activity or physical characteristics.",
         "Often used in astronomy education."
+      ],
+      "additional_descriptions": [
+        "Represents solar phenomena like sunspots and solar flares.",
+        "Used to demonstrate the Sun's role in the solar system."
       ]
     },
     {
-      "name": "mercury_model",
+      "name": "Mercury_Model",
       "descriptions": [
         "A miniature representation of the planet Mercury.",
         "Highlights surface features and position in the Solar System.",
         "Used in educational displays or models."
+      ],
+      "additional_descriptions": [
+        "Illustrates Mercury's proximity to the Sun and its lack of atmosphere.",
+        "Useful for demonstrating planetary characteristics."
       ]
     },
     {
-      "name": "Venus_model",
+      "name": "Venus_Model",
       "descriptions": [
         "A miniature representation of the planet Venus.",
         "Depicts surface details and atmospheric conditions.",
         "Used in astronomy and planetary studies."
+      ],
+      "additional_descriptions": [
+        "Displays Venus's thick cloud cover and extreme surface temperature.",
+        "Used in models to study planetary atmospheres."
       ]
     },
     {
-      "name": "Mars_model",
+      "name": "Mars_Model",
       "descriptions": [
         "A miniature representation of the planet Mars.",
         "Shows surface features like craters and valleys.",
         "Often part of Solar System models or educational tools."
+      ],
+      "additional_descriptions": [
+        "Used to teach about Mars's geography and its potential for human exploration.",
+        "Highlights Mars's red color due to iron oxide on its surface."
       ]
     },
     {
-      "name": "jupiter_model",
+      "name": "Jupiter_Model",
       "descriptions": [
         "A miniature representation of the planet Jupiter.",
         "Highlights its Great Red Spot and cloud bands.",
         "Used in educational and astronomy models."
+      ],
+      "additional_descriptions": [
+        "Represents Jupiter's massive size and swirling storms.",
+        "Used for demonstrations of gas giants and their unique characteristics."
       ]
     },
     {
-      "name": "Saturn_model",
+      "name": "Saturn_Model",
       "descriptions": [
         "A miniature representation of the planet Saturn.",
         "Depicts its iconic rings and gaseous surface.",
         "Often included in planetary models for study."
+      ],
+      "additional_descriptions": [
+        "Showcases Saturn's extensive ring system and its gas composition.",
+        "Used to teach about the outer planets and their features."
       ]
     },
     {
-      "name": "Neptune_model",
+      "name": "Neptune_Model",
       "descriptions": [
         "A miniature representation of the planet Neptune.",
         "Highlights its deep blue color and atmospheric features.",
         "Used in educational and astronomy projects."
+      ],
+      "additional_descriptions": [
+        "Demonstrates Neptune's storm systems and its position in the outer solar system.",
+        "Used to study the farthest planet from the Sun and its unique conditions."
       ]
     },
     {
-      "name": "Solar_System_model",
+      "name": "Solar_System_Model",
       "descriptions": [
         "A model representing the entire Solar System.",
         "Shows planets, moons, and their relative positions.",
         "Used for teaching astronomy and space science."
+      ],
+      "additional_descriptions": [
+        "Aids in demonstrating the vast distances and scale of the solar system.",
+        "Used in classrooms to explore the relationship between the planets."
       ]
     },
     {
-      "name": "Solar_system_model_Stand",
+      "name": "Solar_System_Model_Stand",
       "descriptions": [
         "A stand for holding the Solar System model.",
         "Provides stability and ease of display.",
         "Often adjustable for better visualization."
-      ]
-    },
-    {
-      "name": "curtain",
-      "descriptions": [
-        "A piece of fabric used to block or obscure light.",
-        "Common in homes, offices, and theaters.",
-        "Can be decorative, functional, or both."
+      ],
+      "additional_descriptions": [
+        "Ensures the Solar System model stays in position for educational purposes.",
+        "Provides a stable base for demonstrating the relative motion of planets."
       ]
     },
     {
@@ -403,53 +377,43 @@
         "A model representing a chemical compound, likely cyclohexane.",
         "Useful for teaching molecular structures in chemistry.",
         "Highlights atomic bonding and geometry."
+      ],
+      "additional_descriptions": [
+        "Helps visualize molecular structures and bonding types.",
+        "Used to illustrate complex organic compounds in chemistry."
       ]
     },
     {
-      "name": "Carbon_Model-1",
-      "descriptions": [
-        "Duplicate of the C6 H12 chemical compound model.",
-        "Used for educational purposes in chemistry.",
-        "Represents molecular structures and bonding."
-      ]
-    },
-    {
-      "name": "microscope",
-      "descriptions": [
-        "A duplicate of a device for magnifying objects.",
-        "Essential in studying biology, materials, and tiny details.",
-        "Helps visualize objects not visible to the naked eye."
-      ]
-    },
-    {
-      "name": "microscope_",
-      "descriptions": [
-        "A duplicate of a device for magnifying objects.",
-        "Essential in studying biology, materials, and tiny details.",
-        "Helps visualize objects not visible to the naked eye."
-      ]
-    },
-    {
-      "name": "Fire_extinguisher001",
-      "descriptions": [
-        "Used for suppressing flames in emergencies.",
-        "Contains chemicals for efficient fire control."
-      ]
-    },
-    {
-      "name": "saturn",
+      "name": "Saturn",
       "descriptions": [
         "Another representation of the planet Saturn.",
         "Features its characteristic rings and gaseous surface.",
         "Used in Solar System and planetary displays."
+      ],
+      "additional_descriptions": [
+        "Features Saturn's distinct appearance and massive ring system.",
+        "Used to teach about the characteristics of gas giants."
       ]
     },
     {
       "name": "Room",
       "descriptions": [
-        "Duplicate of a wall structure with windows.",
+        "Wall structure with windows.",
         "Allows natural light and ventilation.",
         "Common in architectural and interior designs."
+      ],
+      "additional_descriptions": [
+        "Represents a basic architectural design for living or working spaces.",
+        "Provides insight into the design and layout of interior spaces."
+      ]
+    },
+    {
+      "name": "Ceiling",
+      "descriptions": [
+        "A horizontal surface that forms the upper boundary of a room.",
+        "Supports lighting fixtures or other ceiling decorations.",
+        "Can be made from various materials like plaster, drywall, or tiles.",
+        "In architectural designs, it serves both functional and aesthetic purposes."
       ]
     }
   ]
